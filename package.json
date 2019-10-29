@@ -4,15 +4,16 @@
   "description": "a simple parser to parse the constituency for 2019 district council election",
   "main": "main.js",
   "scripts": {
-    "test": "node test/*.js "
+    "test": "node test/test.js "
   },
-  "keywords": [],
+  "keywords": [
+    "election",
+    "hong kong"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "pdf-parse": "^1.1.1",
     "request": "^2.88.0",
-    "require": "^2.4.20",
     "x-ray": "^2.3.4"
   }
 }
