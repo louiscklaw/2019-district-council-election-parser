@@ -13,7 +13,8 @@ var x = Xray({
       return text_in.trim();
     },
     check_empty: function(text_in) {
-      return text_in.trim() != "" ? text_in : null;
+      text_in = text_in.trim()
+      return text_in != "" ? text_in : null;
     }
   }
 });
@@ -46,14 +47,14 @@ function get_canidate_list(url_in) {
   return x(url_in, ".main tr", [
     {
       constituency_code: "td:nth-of-type(1) | check_empty",
-      constituency: "td:nth-of-type(2)",
-      name_of_nominees: "td:nth-of-type(3)",
-      alias: "td:nth-of-type(4)",
-      gender: "td:nth-of-type(5)",
-      occupation: "td:nth-of-type(6)",
-      political_affiliation: "td:nth-of-type(7)",
-      date_of_nomination: "td:nth-of-type(8)",
-      remarks: "td:nth-of-type(9)"
+      constituency: "td:nth-of-type(2) | check_empty",
+      name_of_nominees: "td:nth-of-type(3) | check_empty",
+      alias: "td:nth-of-type(4) | check_empty",
+      gender: "td:nth-of-type(5) | check_empty",
+      occupation: "td:nth-of-type(6) | check_empty",
+      political_affiliation: "td:nth-of-type(7) | check_empty",
+      date_of_nomination: "td:nth-of-type(8) | check_empty",
+      remarks: "td:nth-of-type(9) | check_empty"
     }
   ]).then(res => {
     return res.filter(canidate => canidate["constituency_code"] != null);
@@ -131,3 +132,4 @@ module.exports.helloworld = helloworld;
 module.exports.parse_cand_list_district = parse_cand_list_district;
 module.exports.parse_whole_hongkong_list = parse_whole_hongkong_list;
 module.exports.get_chinese_canidate_list = get_chinese_canidate_list;
+module.exports.get_canidate_list = get_canidate_list;
