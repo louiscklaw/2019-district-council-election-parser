@@ -3,7 +3,7 @@
 var path = require('path')
 var fs = require('fs')
 
-var script_under_test = require(`${__dirname}/../main.js`)
+var script_under_test = require(`${__dirname}/../src/parser.js`)
 
 
 function test_parse_whole_hongkong_list(){
